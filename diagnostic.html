@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset = "UTF-8">
+    <title> OTTO BOT </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css">
+    <link rel="stylesheet" href="website.css">
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="Home pics/otto logo.png" width="150px" height="150px">
+                </div>
+                <nav>
+                    <ul id="MenuItems">
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="chatbot.html">OTTO</a></li>
+                        <li><a href="diagnostic.html">DIAGNOSTIC TEST</a></li>
+                        <li><a href="search.html">SEARCH</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="container20">
+            <div class="row">
+                <form id="form1">
+
+                    <h3>1. Little interest/pleasure in doing day to day activities</h3>
+                    <label for="var_string"><input type="radio" name="variable" value="1" id="var_string" />Rarely</label>
+                    <label for="var_join"><input type="radio" name="variable" value="2" id="var_join" />Sometimes</label>
+                    <label for="var_info"><input type="radio" name="variable" value="3" id="var_info" />Often</label>
+                    <label for="var_condition"><input type="radio" name="variable" value="4" id="var_condition"/>Always</label>
+
+                    <h3>2. Feeling sad/depressed/hopeless</h3>
+                    <label for="sub_string"><input type="radio" name="sub" value="1" id="sub_string"/>Rarely</label>
+                    <label for="sub_join"><input type="radio" name="sub" value="2" id="sub_join"/>Sometimes</label>
+                    <label for="sub_info"><input type="radio" name="sub" value="3" id="sub_info" />Often</label>
+                    <label for="sub_condition"><input type="radio" name="sub" value="4" id="sub_condition" />Always</label>
+
+                    <h3>3. Feeling tired/little to no energy</h3>
+                    <label for="cat_string"><input type="radio" name="con" value="1" id="cat_string" />Rarely</label>
+                    <label for="cat_join"><input type="radio" name="con" value="2" id="cat_join" />Sometimes</label>
+                    <label for="cat_info"><input type="radio" name="con" value="3" id="cat_info" />Often</label>
+                    <label for="cat_condition"><input type="radio" name="con" value="4" id="cat_condition" />Always</label>
+
+                    <h3>4. Trouble falling asleep/excessive sleeping</h3>
+                    <label for="if_string"><input type="radio" name="ifstate" value="1" id="if_string" />Rarely</label>
+                    <label for="if_join"><input type="radio" name="ifstate" value="2" id="if_join" />Sometimes</label>
+                    <label for="if_info"><input type="radio" name="ifstate" value="3" id="if_info" />Often</label>
+                    <label for="if_condition"><input type="radio" name="ifstate"  value="4" id="if_condition" />Always</label>
+
+                    <h3>5. Poor appetite/overeating</h3>
+                    <label for="dog_string"><input type="radio" name="dog" value="1" id="dog_string" />Rarely</label>
+                    <label for="dog_join"><input type="radio" name="dog" value="2" id="dog_join" />Sometimes</label>
+                    <label for="dog_info"><input type="radio" name="dog" value="3" id="dog_info" />Often</label>
+                    <label for="dog_condition"><input type="radio" name="dog"  value="4" id="dog_condition" />Always</label>
+
+                    <h3>6. Trouble concentrating</h3>
+                    <label for="fish_string"><input type="radio" name="fish" value="1" id="fish_string" />Rarely</label>
+                    <label for="fish_join"><input type="radio" name="fish" value="2" id="fish_join" />Sometimes</label>
+                    <label for="fish_info"><input type="radio" name="fish"value="3" id="fish_info" />Often</label>
+                    <label for="fish_condition"><input type="radio" name="fish"  value="4" id="fish_condition" />Always</label>
+
+                    <h3>7. Thoughts that you would be better off dead, or of hurting yourself</h3>
+                    <label for="chi_string"><input type="radio" name="chi" value="1" id="chi_string" />Rarely</label>
+                    <label for="chi_join"><input type="radio" name="chi" value="2" id="chi_join" />Sometimes</label>
+                    <label for="chi_info"><input type="radio" name="chi" value="3" id="chi_info" />Often</label>
+                    <label for="chi_condition"><input type="radio" name="chi"  value="4" id="chi_condition" />Always</label>
+                    <h3> </h3>
+                    <button type="submit" value="Submit">SUBMIT</button>
+                </form>
+                
+            </div>
+            <div class="row">
+                <h3 style="margin-top: 20px; margin-bottom:20px;"> Your Results:<span id="grade">___</span></h3>
+                <h3 style="margin-top: 20px; margin-bottom:20px;" id="grade2"></h3>
+            </div>
+
+        </div>
+    </div>
+<script>
+document.getElementById("form1").onsubmit=function() {
+    variable = parseInt(document.querySelector('input[name = "variable"]:checked').value);
+    sub = parseInt(document.querySelector('input[name = "sub"]:checked').value);
+    con = parseInt(document.querySelector('input[name = "con"]:checked').value);
+    ifstate = parseInt(document.querySelector('input[name = "ifstate"]:checked').value);
+    dogg = parseInt(document.querySelector('input[name = "dog"]:checked').value);
+    fishh = parseInt(document.querySelector('input[name = "fish"]:checked').value);
+    chii = parseInt(document.querySelector('input[name = "chi"]:checked').value);
+    
+    
+    result = variable + sub + con + ifstate + dogg + fishh + chii;
+    var str;
+        if (result <= 9) {str="No Depression"; result2 = "Your answers suggest you may not be suffering from depression. </bn> Still if you feel something isn’t quite right we recommend you schedule an appointment with your doctor.</bn> If you need help finding a mental health professional we suggest that you reach out to emergency mental health resources. Canada Emergency: 911 Hotline: 1-888-353-2273   YourLifeCounts.org: http://www.yourlifecounts.org/need-help/crisis-lines"}
+        else if (result <=14) {str="Moderate Depression";result2 = "Your answers suggest you are suffering from moderate depression. Consider watchful waiting, and testing again normally within two weeks. We additionally suggest it would be prudent to start a conversation with your doctor. If you need help finding a mental health professional we suggest that you reach out to http://www.nami.org/Find-Support"}
+        else if (result <= 28) {str="Severe Depression";result2 = "Your answers suggest you are suffering from severe depression. It is important that you schedule an appointment with your doctor or a mental health worker now. If you need help finding a mental health professional we suggest that you reach out to http://www.nami.org/Find-Support."}
+    document.getElementById("grade").innerHTML = result + "/28 "+ str;
+    document.getElementById("grade2").innerHTML = result2; 
+    return false;
+
+}
+</script>
+<!-- ---- footer------ -->
+<div class="footer">
+    <div class="container3">
+        <div class="row">
+        <div class="footer-col-1">
+            <h3>Stay connected with us.</h3> 
+            <p>Get new updates on any products, events, and store updates with the new updates. </p>
+            <p>...</p> 
+            
+            <h3>Enter your email:</h3>
+            <form action="/action_page.php">
+              <input type="email" id="email" name="email">
+              <input type="submit">
+            </form>
+            <p>© 2020 Otto. All Rights Reserved. 
+                otto.com uses cookies to personalize your shopping experience. 
+                Please read our Privacy Policy to learn more and/or opt out.</p> 
+        </div>
+        <div class="footer-col-2">
+            <img src="Home pics/otto logo.png">
+        </div>
+        <div class="footer-col-4">
+            <h3>Follow us!</h3> 
+            <ul>
+                <li>Twitter</li>
+                <li>Youtube</li>
+                <li>Facebook</li>
+                <li>Instagram</li>
+            </ul>     
+        </div>
+    </div>
+    <hr>
+    <p class="Copyright"></p>Copyright 2020-OTTO</p>
+    </div>
+</div>
+
+
+    
+</body>
+</html>
